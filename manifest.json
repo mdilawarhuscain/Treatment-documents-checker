@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Treatment Document Checker",
+  "version": "1.0",
+  "description": "Verify treatment documents of claims against the predefined list.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://eclaim2.slichealth.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://eclaim2.slichealth.com/ords/r/ihmis_admin/e-claim-model/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
